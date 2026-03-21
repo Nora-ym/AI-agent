@@ -128,7 +128,7 @@ curl -N -X POST http://localhost:8080/api/agent/chat/stream \
 
 
 至此，本项目简单搭建完成！
-
+本人小白萌新一个，欢迎交流指导!
 
 
 
