@@ -23,10 +23,15 @@ AI Agent是一个能够自主理解用户意图、调用外部工具、逐步推
 
 #### 4.本项目实现的功能
 ✅ 一个Spring Boot REST服务，提供/chat和/chat/stream接口。
+
 ✅ 支持定义多个工具（如get_weather、calculate）。
+
 ✅ 自动注册工具，无需手动添加。
+
 ✅ 支持多轮对话和工具调用。
+
 ✅ 流式输出执行过程（Thinking、Executing、Result）。
+
 
 
 ### 二、项目结构
@@ -56,6 +61,7 @@ src/main/java/com/example/agent/
 
 ```
 ### 三、详细代码实现
+一一对应在各上传文件
 #### 1. Maven依赖（pom.xml）
 #### 2. 启动类
 #### 3. 工具注解@Tool
@@ -85,7 +91,10 @@ curl -X POST http://localhost:8080/api/agent/chat \
 curl -N -X POST http://localhost:8080/api/agent/chat/stream \
   -H "Content-Type: application/json" \
   -d '{"sessionId":"123","message":"计算 12+5"}'
+注意：此处可能因为运行端不同而有所改动，可以自行根据情况改写
 ```
+#### 4. 注：也可以在src同级目录下新建http文件输入POST请求然后运行查看结果。
+
 ### 五、代码说明
 -工具注册：通过ToolRegistry扫描所有带有@Tool注解的方法，自动注册，无需手动维护。
 
@@ -105,6 +114,21 @@ curl -N -X POST http://localhost:8080/api/agent/chat/stream \
 4.持久化会话：将对话历史存储到Redis或数据库。
 
 5.添加认证和限流：保障服务安全
+
+### 七、部分结果展示
+#### 1. 主函数运行结果
+<img width="1644" height="167" alt="image" src="https://github.com/user-attachments/assets/fd03a8c7-3ad1-489a-9010-2e9d4ae8768e" />
+
+#### 2.POST
+<img width="1632" height="739" alt="image" src="https://github.com/user-attachments/assets/d8c6c8f1-406a-4d71-8594-042205073ea8" />
+
+#### 3.控制台端
+<img width="629" height="113" alt="image" src="https://github.com/user-attachments/assets/d3d4f75f-2975-4cc5-a84e-bdc6f033eb09" />
+
+
+
+至此，本项目简单搭建完成！
+
 
 
 
